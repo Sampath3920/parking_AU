@@ -1,0 +1,24 @@
+spring.application.name=smart-parking-backend
+
+# MySQL Database Configuration
+spring.datasource.url=jdbc:mysql://YOUR_AIVEN_HOST:YOUR_AIVEN_PORT/defaultdb?ssl-mode=REQUIRED
+spring.datasource.username=YOUR_AIVEN_USERNAME
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
+
+# JPA / Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+
+# Server Configuration
+server.port=${PORT:8080}
+
+# JWT Configuration
+app.jwt.secret=${JWT_SECRET}
+app.jwt.expiration-ms=86400000
+
+# Admin Seed Configuration
+app.seed.enabled=true
+app.seed.password=${SEED_PASSWORD}
+
+# Manual Payment Configuration
+app.payment.manual-amount=50.00
