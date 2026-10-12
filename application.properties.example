@@ -1,8 +1,8 @@
 spring.application.name=smart-parking-backend
 
-# MySQL Database Configuration
-spring.datasource.url=jdbc:mysql://YOUR_AIVEN_HOST:YOUR_AIVEN_PORT/defaultdb?ssl-mode=REQUIRED
-spring.datasource.username=YOUR_AIVEN_USERNAME
+# MySQL Database Configuration (Aiven)
+spring.datasource.url=jdbc:mysql://mysql-1d6b13aa-anurag-835d.k.aivencloud.com:28541/defaultdb?sslMode=REQUIRED
+spring.datasource.username=avnadmin
 spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
 
 # JPA / Hibernate Configuration
@@ -15,6 +15,9 @@ server.port=${PORT:8080}
 # JWT Configuration
 app.jwt.secret=${JWT_SECRET}
 app.jwt.expiration-ms=86400000
+
+# CORS: your Netlify URL, set on Render
+app.cors.allowed-origins=${CORS_ALLOWED_ORIGINS:http://localhost:5173}
 
 # Admin Seed Configuration
 app.seed.enabled=true
