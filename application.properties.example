@@ -1,27 +1,18 @@
 spring.application.name=smart-parking-backend
 
-# MySQL Database Configuration (Aiven)
-spring.datasource.url=jdbc:mysql://mysql-1d6b13aa-anurag-835d.k.aivencloud.com:28541/defaultdb?sslMode=REQUIRED
-spring.datasource.username=avnadmin
-spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
+spring.datasource.url=${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/smart_parking}
+spring.datasource.username=${SPRING_DATASOURCE_USERNAME:root}
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD:}
 
-# JPA / Hibernate Configuration
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=false
 
-# Server Configuration
-server.port=${PORT:8080}
+server.port=${PORT:4000}
 
-# JWT Configuration
-app.jwt.secret=${JWT_SECRET}
+app.jwt.secret=${JWT_SECRET:SmartCollegeParkingSystemSecretKey2026VeryLong}
 app.jwt.expiration-ms=86400000
+app.cors.allowed-origins=${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://127.0.0.1:5173,24eg105r22.Netlify.app}
 
-# CORS: your Netlify URL, set on Render
-app.cors.allowed-origins=${CORS_ALLOWED_ORIGINS:http://localhost:5173}
-
-# Admin Seed Configuration
-app.seed.enabled=true
-app.seed.password=${SEED_PASSWORD}
-
-# Manual Payment Configuration
+app.seed.enabled=${APP_SEED_ENABLED:true}
+app.seed.password=${SEED_PASSWORD:ChangeMe@123}
 app.payment.manual-amount=50.00
