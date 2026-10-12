@@ -29,7 +29,11 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
 .vscode/
 
-src/main/resources/application.properties
+### Local database & logs ###
+data/
+*.mv.db
+*.trace.db
+*.log
+

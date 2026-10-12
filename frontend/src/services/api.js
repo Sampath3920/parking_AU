@@ -1,8 +1,20 @@
 import axios from "axios";
 import { clearSession } from "./auth";
 
+const getBaseUrl = () => {
+    const raw = (import.meta.env.VITE_API_BASE_URL || "http://localhost:4000/api").trim();
+    let url = raw;
+    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+        url = `https://${url}`;
+    }
+    if (!url.endsWith("/api")) {
+        url = url.endsWith("/") ? `${url}api` : `${url}/api`;
+    }
+    return url;
+};
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:4000/api"
+    baseURL: getBaseUrl()
 });
 
 // Send the JWT with every request
