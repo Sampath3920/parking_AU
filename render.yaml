@@ -7,11 +7,13 @@ services:
     healthCheckPath: /api/health
     envVars:
       - key: SPRING_DATASOURCE_URL
-        sync: false
+        value: jdbc:mysql://mysql-1d6b13aa-anurag-835d.k.aivencloud.com:28541/defaultdb?sslMode=REQUIRED
       - key: SPRING_DATASOURCE_USERNAME
-        sync: false
+        value: avnadmin
       - key: SPRING_DATASOURCE_PASSWORD
         sync: false
+      - key: SPRING_DATASOURCE_DRIVER
+        value: com.mysql.cj.jdbc.Driver
       - key: JWT_SECRET
         generateValue: true
       - key: SEED_PASSWORD
